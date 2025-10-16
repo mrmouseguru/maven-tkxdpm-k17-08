@@ -1,7 +1,7 @@
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class InputUIConsole implements InputInterface{
+public class InputUIConsole implements InputBoundary{
 	private Scanner in;
 	private PrintWriter out;
 	

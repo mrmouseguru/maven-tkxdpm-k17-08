@@ -8,7 +8,7 @@ public class AppNhan2So {
 		Scanner keyboard = new Scanner(System.in);
 		PrintWriter screen = new PrintWriter(System.out);
 		
-		InputInterface input = new InputGUI();
+		InputBoundary input = new InputGUI();
 				//new InputUIConsole(keyboard,screen);
 				//
 				//;

@@ -1,3 +1,4 @@
+package nhan2so;
 
 public class Nhan2SoEntity {
 	// trừu tượng input/ output
