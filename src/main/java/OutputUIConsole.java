@@ -1,6 +1,6 @@
 import java.io.PrintWriter;
 
-public class OutputUIConsole implements OutputInterface{
+public class OutputUIConsole implements OutputBoundary{
 	private PrintWriter out;
 	
 	
@@ -12,7 +12,7 @@ public class OutputUIConsole implements OutputInterface{
 
 
 	@Override
-	public void output(OutputData outData) {
+	public void present(OutputData outData) {
 		// TODO Auto-generated method stub
 		String strOut = String.valueOf(outData.result);
 		out.println("Kết quả là: " + strOut);
