@@ -1,3 +1,4 @@
+package desktopGUI;
 
 
 import java.awt.GridLayout;
@@ -9,6 +10,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import nhan2so.InputBoundary;
+import nhan2so.Nhan2SoEntity;
+import nhan2so.Nhan2SoUseCaseControl;
+import nhan2so.OutputBoundary;
+import presenters.Nhan2SoPresenter;
+import presenters.Nhan2SoViewModel;
 
 public class WindowNhan2So extends JFrame {
 
@@ -50,8 +58,22 @@ public class WindowNhan2So extends JFrame {
 							public void actionPerformed(ActionEvent e) {
 								//sinh viên cài đặt code ở đây
 								//để khi click lên nút thì nó nàm gì
-								JOptionPane.showMessageDialog(btX,""
-										+ "Chúc các bjan học tót");
+								ResultDialogView view = new ResultDialogView();
+								OutputBoundary out = null;
+								Nhan2SoViewModel model = new Nhan2SoViewModel();
+								view.setModel(model);//đăng ký
+								out  = new Nhan2SoPresenter(model);
+								Nhan2SoEntity entity = new Nhan2SoEntity();
+								InputDTO inDTO = new InputDTO();
+								InputBoundary in = null;
+								in = new Nhan2SoUseCaseControl(out, entity);
+								inDTO.num1 = tf1.getText();
+								inDTO.num2 = tf2.getText();
+								Nhan2SoController controller = 
+										new Nhan2SoController(in);
+								controller.execute(inDTO);//tạo dữ liệu trong model
+								
+								model.notifySubscribers();
 								
 							}
 						}
