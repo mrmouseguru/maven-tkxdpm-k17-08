@@ -40,23 +40,12 @@
 			<version>2.0.0</version>
 		</dependency>
 
-
-		<!-- Jakarta REST API — không để provided, đóng gói vào WAR -->
-		<dependency>
+		<!--api-->
+        <dependency>
 			<groupId>jakarta.ws.rs</groupId>
 			<artifactId>jakarta.ws.rs-api</artifactId>
 			<version>3.1.0</version>
 		</dependency>
-
-
-		<!-- Jersey implementation (include in WAR so it runs on plain servlet
-		container) -->
-		<!--<dependency>
-			<groupId>org.glassfish.jersey.containers</groupId>
-			<artifactId>jersey-container-servlet-core</artifactId>
-			<version>3.1.11</version>
-		</dependency>-->
-
 
 		<dependency>
 			<groupId>org.glassfish.jersey.containers</groupId>
@@ -77,6 +66,7 @@
 			<artifactId>jersey-hk2</artifactId>
 			<version>3.1.11</version>
 		</dependency>
+		
 
 
 	</dependencies>
