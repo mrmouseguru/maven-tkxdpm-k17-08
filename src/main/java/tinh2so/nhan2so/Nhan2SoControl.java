@@ -2,11 +2,12 @@ package tinh2so.nhan2so;
 
 import tinh2so.OutputBoundary;
 import tinh2so.RequestData2So;
-import tinh2so.Tinh2Control;
+import tinh2so.Tinh2SoControl;
 
-public class Nhan2SoControl extends Tinh2Control {
+public class Nhan2SoControl extends Tinh2SoControl {
 	protected Nhan2SoControl(OutputBoundary out) {
 		super(out);
+		res = new ResponseDataNhan2So();
 
 	}
 
@@ -20,6 +21,21 @@ public class Nhan2SoControl extends Tinh2Control {
 			//xử lý ngoại lệ
 			res.message = e.getMessage();//"INVALID_INPUT"=>ResponseData2So
 		}
+		
+		//valid
+		//sai khiến Entity
+		Nhan2SoEntity entity = new Nhan2SoEntity(rq.num1, rq.num2);
+		int result = entity.tinh2so();
+		//nhét result vào ResponseData2So
+		res.result = result;
+		
+		//kiểm tra even odd cho result
+		//sai khiến
+		ResponseDataNhan2So resNhan2So = (ResponseDataNhan2So) res;
+		resNhan2So.isEven = entity.checkEven(result);
+		
+		//chuyển ResponseDataNhan2So thành ResponseData2So
+		res = resNhan2So;
 
 	}
 
